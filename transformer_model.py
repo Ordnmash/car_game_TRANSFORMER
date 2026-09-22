@@ -10,7 +10,7 @@ data       = open(train_data, 'r').read().splitlines()
 
 # model hyper-parameters
 batch      = 16
-insize     = 33
+insize     = 43
 block_size = 500
 n_embed    = 500
 num_heads  = 5
@@ -25,7 +25,7 @@ class CarGame(nn.Module):
   sample_game= sample_game
 
   def __init__(self):  
-      self.batch = batch
+      self.batch      = batch
       self.block_size = block_size
       self.capture    = capture
       # dataset handling...
@@ -50,5 +50,5 @@ class CarGame(nn.Module):
         f"Number of parameters: "
         f"{parameter_count}")
 
-model = CarGame()
-model.fit(10000)
+#model = CarGame()
+#model.fit(10000)
