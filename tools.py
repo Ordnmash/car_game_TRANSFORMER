@@ -152,3 +152,5 @@ def fit(self, epochs=1000, batch_size=1, lr=1e-3):
     if (i+1) % max(1, int(epochs/20)) == 0:
       print(f"epoch:{i+1}   | loss={loss.item():.4f}")
       torch.save(self.state_dict(), "carTransformer1-5m.pt") # save checkpoint during training...
+  
+  self.eval()
