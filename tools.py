@@ -23,9 +23,9 @@ def clean_data(data, batch):
     for d in idata:
       gd.append(d)
       c+=1
-      if c == 34:
-        gdata['x'].append(gd[:33])
-        gdata['y'].append(gd[33])
+      if c == 44:
+        gdata['x'].append(gd[:43])
+        gdata['y'].append(gd[43])
         c  = 0
         gd = []
       
