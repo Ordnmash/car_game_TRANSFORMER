@@ -33,7 +33,7 @@ class CarGame(nn.Module):
       self.vocab_size = len(self.vocabs)
   
       super().__init__()
-      self.norm= nn.LayerNorm(insize)
+      self.norm= nn.LayerNorm(insize) # normalize raw inputs as they're so extremely high
       self.ff1 = nn.Linear(insize, n_embed, bias=True)
       self.lpe = LearnedPE(block_size, n_embed)
       self.rb1 = ResidualBlock(self.capture, True)
