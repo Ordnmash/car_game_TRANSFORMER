@@ -56,13 +56,13 @@ def get_traind(self, batch):
   return x,y
 
 # encoding and decoding tools:
-def encode(s, stoi):
+def encode(s, stoi) -> list:
   d = []
   for si in s:
     d.append(stoi[si])
   return d
 
-def decode(l, itos):
+def decode(l, itos) -> str:
   d = []
   for li in l:
     d.append(itos[li])
