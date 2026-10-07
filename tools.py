@@ -110,11 +110,11 @@ class LearnedPE(nn.Module):
 def forward(self, x, targets=None):
   x      = self.norm(x)
   x      = self.ff1(x)
-  x      = self.lpe(x)
-  x      = self.rb1(x)                                
-  _,T,_  = x.shape
+  xrb    = self.lpe(x)                              
+  _,T,_  = xrb.shape
   mask   = torch.triu(torch.ones(T, T), 1).bool()
-  x,_    = self.mha(x,x,x, attn_mask=mask)           
+  x,_    = self.mha(xrb,xrb,xrb, attn_mask=mask)           
+  x      += xrb
   logits = self.ff2(x)                               
   # logits = [B, T, C]
 
