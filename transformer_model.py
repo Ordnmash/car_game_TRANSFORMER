@@ -49,3 +49,6 @@ class CarGame(nn.Module):
       print(
         f"Number of parameters: "
         f"{parameter_count}")
+
+#model = CarGame()
+#model.fit(10000)
