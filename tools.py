@@ -3,7 +3,7 @@ import torch.nn as nn
 import torch.optim as optim
 import torch.nn.functional as F
 
-def clean_data(data, batch):
+def clean_data(data:list, batch:int):
   # this function handles the data of multiple games separated by '/'
   done_all = False
   _games   = {'x':[],'y':[]}
@@ -43,7 +43,7 @@ def clean_data(data, batch):
       i-=1
   return _games, vocabs
 
-def get_traind(self, batch):
+def get_traind(self, batch: int) -> torch.tensor:
   # it has to return [B, T]
   x, y = [], []
   for _ in range(batch):
@@ -56,13 +56,13 @@ def get_traind(self, batch):
   return x,y
 
 # encoding and decoding tools:
-def encode(s, stoi) -> list:
+def encode(s:str, stoi:dict) -> list:
   d = []
   for si in s:
     d.append(stoi[si])
   return d
 
-def decode(l, itos) -> str:
+def decode(l:list, itos:dict) -> str:
   d = []
   for li in l:
     d.append(itos[li])
