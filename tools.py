@@ -124,7 +124,7 @@ def forward(self, x, targets=None):
   else:
     loss   = None
 
-  return logits, loss
+  return (logits, loss)
 
 def sample_game(self, x):
   self.eval()
