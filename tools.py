@@ -4,7 +4,7 @@ import torch.optim as optim
 import torch.nn.functional as F
 
 def clean_data(data:list, batch:int):
-  # this function handles the data of multiple games separated by '/'
+  
   done_all = False
   _games   = {'x':[],'y':[]}
 
