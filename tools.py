@@ -5,10 +5,10 @@ import torch.nn.functional as F
 
 def clean_data(data:list, batch:int):
   
-  done_all = False
-  _games   = {'x':[],'y':[]}
+  doing = True
+  _games= {'x':[],'y':[]}
 
-  while not done_all:
+  while doing:
     idata    = []
     gdata    = {'x':[],'y':[]}
     for i,d in enumerate(data):
@@ -34,7 +34,7 @@ def clean_data(data:list, batch:int):
     _games['y'].append(gdata['y'])
     vocabs = list(set(y for game in _games['y'] for y in game))
     if len(data) == 0:
-      done_all = True
+      doing = True
 
   for i,d in enumerate(_games['x']):
     if len(d) < batch:
